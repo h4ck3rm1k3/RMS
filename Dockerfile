@@ -1,4 +1,5 @@
 FROM imposm3:latest
+# using docker from https://github.com/h4ck3rm1k3/docker-postgis
 MAINTAINER James Michael DuPont <h4ck3rm1k3@thefr33.com>
 run  apt-get install -texperimental -y python-mapnik mapnik-utils
 

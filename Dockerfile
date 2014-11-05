@@ -38,5 +38,7 @@ add get_shapefiles.sh /opt/RMS/get_shapefiles.sh
 run chmod +x /opt/RMS/get_shapefiles.sh
 
 run /opt/RMS/get_shapefiles.sh
+#oops
+run mv data/ /opt/RMS/data
 
 run cd /opt/tilemill && node ./index.js export --format mbtiles RMS /opt/RMS/export/

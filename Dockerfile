@@ -24,7 +24,8 @@ run  apt-get install -texperimental -y node-sqlite3
 
 # update the sources
 run cd /opt/tilemill &&  git pull 
-run ln -s /usr/bin/nodejs /usr/bin/node
+run apt-get install -y nodejs-legacy
+#run ln -s /usr/bin/nodejs /usr/bin/node
 run cd /opt/tilemill &&  npm install
 
 add import.sh /opt/RMS/import.sh

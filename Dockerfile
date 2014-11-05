@@ -41,7 +41,5 @@ run /opt/RMS/get_shapefiles.sh
 #oops
 run mv data/ /opt/RMS/data
 
-#run cd /opt/tilemill && node ./index.js export --format mbtiles RMS /opt/RMS/export/
-
-add run_export_tiles.sh /opt/RMS/
-run chmod +x /opt/RMS/run_export_tiles.sh
+add run_export_styles.sh /opt/RMS/
+run chmod +x /opt/RMS/run_export_styles.sh

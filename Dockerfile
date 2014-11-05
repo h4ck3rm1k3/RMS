@@ -31,4 +31,12 @@ run cd /opt/tilemill &&  npm install
 add import.sh /opt/RMS/import.sh
 run chmod +x /opt/RMS/import.sh
 
+run mkdir -p /root/Documents/MapBox/project/
+run ln -s /opt/RMS/ /root/Documents/MapBox/project/
+#run cd /opt/RMS &&  git pull 
+add get_shapefiles.sh /opt/RMS/get_shapefiles.sh
+run chmod +x /opt/RMS/get_shapefiles.sh
 
+run /opt/RMS/get_shapefiles.sh
+
+run cd /opt/tilemill && node ./index.js export --format mbtiles RMS /opt/RMS/export/

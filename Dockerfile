@@ -42,4 +42,5 @@ run /opt/RMS/get_shapefiles.sh
 run mv data/ /opt/RMS/data
 
 add run_export_styles.sh /opt/RMS/
+cd /opt/RMS/ && git pull origin 
 run chmod +x /opt/RMS/run_export_styles.sh

@@ -43,5 +43,5 @@ run mv data/ /opt/RMS/data
 
 add run_export_styles.sh /opt/RMS/
 add project.mml /opt/RMS/
-
+sudo apt-get -t experimental -y install postgresql-client
 run chmod +x /opt/RMS/run_export_styles.sh

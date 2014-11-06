@@ -14,3 +14,7 @@ import: build
 
 export_styles: build
 	sudo docker run  -i --link pgroute:db -t $(NAME)  bash -x /opt/RMS/run_export_styles.sh
+
+
+runall : build
+	sudo docker run  -i --link pgroute:db -t $(NAME)  bash -x /opt/RMS/run_all.sh

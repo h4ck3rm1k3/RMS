@@ -192,7 +192,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, height, width, refs, network FROM\n  (SELECT\n      way, \n      array_length(refs,1) AS height,\n      (SELECT MAX(char_length(ref)) FROM unnest(refs) AS u(ref)) AS width,\n      array_to_string(refs, E'\\n')  AS refs,\n      network\n    FROM (\n      SELECT\n          way,\n          string_to_array(ref, ';') AS refs,\n          network\n      FROM planet_osm_line\n        WHERE (network IN ('M', 'A', 'B','S','NH','NR','T'))\n        AND ref IS NOT NULL\n      ) AS p) AS q\n  WHERE height <= 4 AND width <= 11) AS roads_text_ref",
+        "table": "(SELECT way, height, width, refs, network FROM (SELECT way, array_length(refs,1) AS height, (SELECT MAX(char_length(ref)) FROM unnest(refs) AS u(ref)) AS width, array_to_string(refs, E'\\n') AS refs, network FROM ( SELECT way, string_to_array(ref, ';') AS refs, network FROM planet_osm_line WHERE (network IN ('M', 'A', 'B','S','NH','NR','T')) AND ref IS NOT NULL ) AS p) AS q, (values ('M',1),('A',2), ('NR',3),('NH',4),('B',5),('S',6),('T',7)) as network_ordering(network_code, network_order) WHERE height <= 4 AND width <= 11 and q.network = network_ordering.network_code order by network_ordering.network_order) AS roads_text_ref",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "auto",
